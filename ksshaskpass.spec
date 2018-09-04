@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.13.4
-Release  : 1
-URL      : https://download.kde.org/stable/plasma/5.13.4/ksshaskpass-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/ksshaskpass-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/ksshaskpass-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 2
+URL      : https://download.kde.org/stable/plasma/5.13.5/ksshaskpass-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/ksshaskpass-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/ksshaskpass-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -19,7 +19,6 @@ Requires: ksshaskpass-locales
 Requires: ksshaskpass-man
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kwallet-dev
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
 
 %description
@@ -76,14 +75,14 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.13.4
+%setup -q -n ksshaskpass-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535146311
+export SOURCE_DATE_EPOCH=1536087595
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -91,7 +90,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535146311
+export SOURCE_DATE_EPOCH=1536087595
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ksshaskpass
 cp COPYING %{buildroot}/usr/share/doc/ksshaskpass/COPYING

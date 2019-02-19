@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.15.0
-Release  : 10
-URL      : https://download.kde.org/stable/plasma/5.15.0/ksshaskpass-5.15.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.0/ksshaskpass-5.15.0.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.0/ksshaskpass-5.15.0.tar.xz.sig
+Version  : 5.15.1
+Release  : 11
+URL      : https://download.kde.org/stable/plasma/5.15.1/ksshaskpass-5.15.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.1/ksshaskpass-5.15.1.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.1/ksshaskpass-5.15.1.tar.xz.sig
 Summary  : ssh-add helper that uses kwallet and kpassworddialog
 Group    : Development/Tools
 License  : GPL-2.0
@@ -75,14 +75,14 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.15.0
+%setup -q -n ksshaskpass-5.15.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549994373
+export SOURCE_DATE_EPOCH=1550588148
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -90,7 +90,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549994373
+export SOURCE_DATE_EPOCH=1550588148
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksshaskpass
 cp COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/COPYING

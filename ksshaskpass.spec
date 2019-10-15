@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.16.5
-Release  : 23
-URL      : https://download.kde.org/stable/plasma/5.16.5/ksshaskpass-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/ksshaskpass-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/ksshaskpass-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 24
+URL      : https://download.kde.org/stable/plasma/5.17.0/ksshaskpass-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/ksshaskpass-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/ksshaskpass-5.17.0.tar.xz.sig
 Summary  : ssh-add helper that uses kwallet and kpassworddialog
 Group    : Development/Tools
 License  : GPL-2.0
@@ -74,14 +74,14 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.16.5
+%setup -q -n ksshaskpass-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567642357
+export SOURCE_DATE_EPOCH=1571154718
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,14 +94,14 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567642357
+export SOURCE_DATE_EPOCH=1571154718
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksshaskpass
-cp COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/COPYING
+cp %{_builddir}/ksshaskpass-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
 pushd clr-build
 %make_install
 popd
@@ -116,7 +116,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/ksshaskpass/COPYING
+/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
 
 %files man
 %defattr(0644,root,root,0755)

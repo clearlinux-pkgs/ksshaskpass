@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.18.1
-Release  : 31
-URL      : https://download.kde.org/stable/plasma/5.18.1/ksshaskpass-5.18.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.1/ksshaskpass-5.18.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.1/ksshaskpass-5.18.1.tar.xz.sig
+Version  : 5.18.2
+Release  : 32
+URL      : https://download.kde.org/stable/plasma/5.18.2/ksshaskpass-5.18.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.2/ksshaskpass-5.18.2.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.2/ksshaskpass-5.18.2.tar.xz.sig
 Summary  : ssh-add helper that uses kwallet and kpassworddialog
 Group    : Development/Tools
 License  : GPL-2.0
@@ -74,15 +74,15 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.18.1
-cd %{_builddir}/ksshaskpass-5.18.1
+%setup -q -n ksshaskpass-5.18.2
+cd %{_builddir}/ksshaskpass-5.18.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582079476
+export SOURCE_DATE_EPOCH=1582679330
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -99,10 +99,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1582079476
+export SOURCE_DATE_EPOCH=1582679330
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksshaskpass
-cp %{_builddir}/ksshaskpass-5.18.1/COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
+cp %{_builddir}/ksshaskpass-5.18.2/COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
 pushd clr-build
 %make_install
 popd

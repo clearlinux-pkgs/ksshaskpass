@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.18.4.1
-Release  : 34
-URL      : https://download.kde.org/stable/plasma/5.18.4/ksshaskpass-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/ksshaskpass-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/ksshaskpass-5.18.4.1.tar.xz.sig
-Summary  : ssh-add helper that uses kwallet and kpassworddialog
+Version  : 5.18.5
+Release  : 35
+URL      : https://download.kde.org/stable/plasma/5.18.5/ksshaskpass-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/ksshaskpass-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/ksshaskpass-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: ksshaskpass-bin = %{version}-%{release}
@@ -19,6 +19,9 @@ Requires: ksshaskpass-locales = %{version}-%{release}
 Requires: ksshaskpass-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
+BuildRequires : kdoctools-dev
+BuildRequires : ki18n-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -74,35 +77,34 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.18.4.1
-cd %{_builddir}/ksshaskpass-5.18.4.1
+%setup -q -n ksshaskpass-5.18.5
+cd %{_builddir}/ksshaskpass-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585677869
+export SOURCE_DATE_EPOCH=1588701532
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585677869
+export SOURCE_DATE_EPOCH=1588701532
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksshaskpass
-cp %{_builddir}/ksshaskpass-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
+cp %{_builddir}/ksshaskpass-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/ksshaskpass/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
 pushd clr-build
 %make_install
 popd

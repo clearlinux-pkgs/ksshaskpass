@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : ksshaskpass
-Version  : 5.26.5
-Release  : 74
-URL      : https://download.kde.org/stable/plasma/5.26.5/ksshaskpass-5.26.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.5/ksshaskpass-5.26.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.5/ksshaskpass-5.26.5.tar.xz.sig
+Version  : 5.27.0
+Release  : 75
+URL      : https://download.kde.org/stable/plasma/5.27.0/ksshaskpass-5.27.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.0/ksshaskpass-5.27.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.0/ksshaskpass-5.27.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0
@@ -78,15 +78,15 @@ man components for the ksshaskpass package.
 
 
 %prep
-%setup -q -n ksshaskpass-5.26.5
-cd %{_builddir}/ksshaskpass-5.26.5
+%setup -q -n ksshaskpass-5.27.0
+cd %{_builddir}/ksshaskpass-5.27.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673285617
+export SOURCE_DATE_EPOCH=1676667042
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,7 +102,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673285617
+export SOURCE_DATE_EPOCH=1676667042
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksshaskpass
 cp %{_builddir}/ksshaskpass-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/ksshaskpass/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
